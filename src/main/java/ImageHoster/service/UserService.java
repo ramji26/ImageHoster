@@ -32,4 +32,21 @@ public class UserService {
         }
     }
 
+    public boolean checkPasswordStrength(String password) {
+
+        int strength = 0;
+
+        if (password.matches(".*\\d.*")) { // contains one or more digit
+            strength++;
+        }
+        if (password.matches(".*[a-zA-Z].*")) { // one alphabet
+            strength++;
+        }
+        if (password.matches(".*[*.!@#\\[\\]$%^&:\"';<>,.?/~`+_|=)({}-].*")) { // one special character
+            strength++;
+        }
+
+        return strength >= 3;
+    }
+
 }
