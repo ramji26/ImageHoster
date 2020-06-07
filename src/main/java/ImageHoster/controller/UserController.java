@@ -46,7 +46,7 @@ public class UserController {
 
         if(userService.checkPasswordStrength(user.getPassword())) {
             userService.registerUser(user);
-            return "redirect:/users/login";
+            return "users/login";
         } else {
             model.addAttribute("passwordTypeError", passwordError);
             // pushing back same object, so that form data is persisted on UI

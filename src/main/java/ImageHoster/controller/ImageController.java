@@ -110,7 +110,7 @@ public class ImageController {
         } else {
             // if not an owner, initiate error message and return
             model.addAttribute("editError", editError);
-            return "images/image";
+            return showImage(imageId, image.getTitle(), model);
         }
 
     }
@@ -163,10 +163,8 @@ public class ImageController {
             return "redirect:/images";
         } else {
             // if not an owner, initiate error message and return
-            model.addAttribute("image", image);
-            model.addAttribute("tags", image.getTags());
             model.addAttribute("deleteError", deleteError);
-            return "images/image";
+            return showImage(imageId, image.getTitle(), model);
         }
 
     }
