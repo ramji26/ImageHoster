@@ -178,6 +178,10 @@ public class ImageController {
     private String convertTagsToString(List<Tag> tags) {
         StringBuilder tagString = new StringBuilder();
 
+        if(tags.isEmpty()) { // return is tags are empty
+            return "";
+        }
+
         for (int i = 0; i <= tags.size() - 2; i++) {
             tagString.append(tags.get(i).getName()).append(",");
         }
