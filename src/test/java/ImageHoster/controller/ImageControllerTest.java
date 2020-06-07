@@ -1,4 +1,3 @@
-/*
 package ImageHoster.controller;
 
 import ImageHoster.model.Image;
@@ -183,6 +182,8 @@ public class ImageControllerTest {
 
         Mockito.when(imageService.getImage(Mockito.anyInt())).thenReturn(image);
 
+        Mockito.when(imageService.checkOwnership(image, user)).thenReturn(true);
+
         this.mockMvc.perform(get("/editImage")
                 .param("imageId", "1")
                 .session(session))
@@ -259,6 +260,8 @@ public class ImageControllerTest {
 
         Mockito.when(imageService.getImage(Mockito.anyInt())).thenReturn(image);
 
+        Mockito.when(imageService.checkOwnership(image, user)).thenReturn(true);
+
         this.mockMvc.perform(delete("/deleteImage")
                 .param("imageId", "1")
                 .session(session))
@@ -309,5 +312,3 @@ public class ImageControllerTest {
                 .andExpect(model().attribute("deleteError", "Only the owner of the image can delete the image"));
     }
 }
-
-*/
